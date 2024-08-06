@@ -1,0 +1,20 @@
+{
+	"manifest_version": 3,
+	"name": "Twitter URL Resetter",
+	"description": "This extension resets Twitter URLs to get rid of parameters",
+	"version": "1.0.0",
+	"host_permissions": ["https://*.twitter.com/*", "https://*.x.com/*"],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"action": {
+		"permissions": ["tabs"]
+	},
+	"content_scripts": [
+		{
+			"js": ["content.js"],
+			"matches": ["https://*.twitter.com/*", "https://*.x.com/*"],
+			"run_at": "document_end"
+		}
+	]
+}
